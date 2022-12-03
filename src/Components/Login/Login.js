@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import banner from "../../assets/banner.png";
 import logo from "../../assets/logo.png";
 const Login = () => {
-    const [error, setError] = useState('') 
+    const [error, setError] = useState('');
+  
     const handleLogin = (e)=> {
         e.preventDefault();
         const form = e.target;
@@ -23,9 +24,10 @@ const Login = () => {
             body: JSON.stringify(user)
         }).then(res => res.json())
         .then(data => {
-            console.log(data.access_token);
+            console.log('Got the access token',data.access_token);
             setError("");
            localStorage.setItem("access_token", data.access_token);
+           
         }).catch(err => console.error(err))
         
     }

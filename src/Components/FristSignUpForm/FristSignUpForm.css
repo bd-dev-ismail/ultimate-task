@@ -1,0 +1,19 @@
+input {
+    border: 0;
+    outline: 0;
+
+}
+
+::placeholder {
+    color: rgba(180, 180, 180, 1);
+    opacity: 1;
+
+}
+
+input:focus {
+    outline: none !important;
+}
+
+.login-card {
+    box-shadow: 1px -10px 25px rgba(201, 201, 201, 0.25), -1px 10px 25px rgba(147, 147, 147, 0.25);
+}

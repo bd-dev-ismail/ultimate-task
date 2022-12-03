@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import banner from "../../assets/banner.png";
 import logo from "../../assets/logo.png";
@@ -33,6 +34,9 @@ const Login = () => {
     }
     return (
       <div>
+        <Helmet>
+            <title>Login - Ultimate</title>
+            </Helmet>
         <div>
           <div className="hero min-h-screen">
             <div className="hero-content w-full flex-col lg:gap-32 lg:flex-row">

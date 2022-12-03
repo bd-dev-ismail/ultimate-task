@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import logo from '../../assets/logo.png';
 const AttendenceInfo = () => {
     const info = [
@@ -63,7 +64,10 @@ const AttendenceInfo = () => {
     },[])
     return (
       <div className="container mx-auto">
-        <img src={logo} alt="" className='mt-12'/>
+        <Helmet>
+          <title>Attendence - Ultimate</title>
+        </Helmet>
+        <img src={logo} alt="" className="mt-12" />
         <div className="flex justify-center items-center mt-10">
           <p className=" text-center text-white rounded flex justify-center items-center font-semibold text-3xl h-20 lg:w-480 w-96 bg-primary">
             Attendence Information
@@ -80,7 +84,7 @@ const AttendenceInfo = () => {
                   <th className="bg-white">Status</th>
                 </tr>
               </thead>
-              <tbody className='text-black'>
+              <tbody className="text-black">
                 {/* The Attendence Information Coming For Database ! Now The access token is some misbehaveing that's why I render some fake data */}
                 {info?.map((info, idx) => (
                   <tr key={idx}>

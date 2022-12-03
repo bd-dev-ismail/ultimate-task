@@ -21,8 +21,8 @@ const FormProvider = ({children}) => {
         console.log(data);
         
        })
-       .cath(err=> console.error(err));
-    console.log(userData);
+      
+    
        
     }
     const formInfo = {

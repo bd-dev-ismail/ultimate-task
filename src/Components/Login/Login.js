@@ -23,9 +23,9 @@ const Login = () => {
             body: JSON.stringify(user)
         }).then(res => res.json())
         .then(data => {
-            console.log(data);
+            console.log(data.access_token);
             setError("");
-           
+           localStorage.setItem("access_token", data.access_token);
         }).catch(err => console.error(err))
         
     }

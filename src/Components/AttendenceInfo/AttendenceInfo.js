@@ -1,7 +1,10 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import logo from '../../assets/logo.png';
 const AttendenceInfo = () => {
-    const userInfo = [
+    const info = [
+
       {
         date: "11/07/16",
         name: "Arlene McCoy",
@@ -43,6 +46,21 @@ const AttendenceInfo = () => {
         status: "Present"
       },
     ];
+    //based on coming data
+    const [userInfo, setUserInfo] = useState([]);
+    useEffect(()=> {
+        fetch("https://test.nexisltd.com/test", {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            setUserInfo(data);
+          })
+          .catch((err) => console.err(err));
+    },[])
     return (
       <div className="container mx-auto">
         <img src={logo} alt="" className='mt-12'/>
@@ -63,8 +81,8 @@ const AttendenceInfo = () => {
                 </tr>
               </thead>
               <tbody className='text-black'>
-                {/* The Attendence Information Coming For Database so that's why I desgin with this way. I Will help our in future */}
-                {userInfo?.map((info, idx) => (
+                {/* The Attendence Information Coming For Database ! Now The access token is some misbehaveing that's why I render some fake data */}
+                {info?.map((info, idx) => (
                   <tr key={idx}>
                     <td>{idx + 1}</td>
                     <td>{info?.date}</td>
